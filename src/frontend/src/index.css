@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Navy primary: #1F3A67 */
+    --primary: 0.32 0.09 254;
+    --primary-foreground: 1 0 0;
+    /* Teal accent: #26A69A */
+    --accent: 0.63 0.11 185;
+    --accent-foreground: 1 0 0;
+    /* Background: #F4F6F8 */
+    --background: 0.97 0.005 250;
+    --foreground: 0.17 0.01 255;
+    /* Card: white */
+    --card: 1 0 0;
+    --card-foreground: 0.17 0.01 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.17 0.01 255;
+    /* Secondary */
+    --secondary: 0.95 0.01 250;
+    --secondary-foreground: 0.32 0.09 254;
+    /* Muted: #6B778C */
+    --muted: 0.95 0.01 250;
+    --muted-foreground: 0.52 0.03 255;
+    /* Border: #E6EAF0 */
+    --border: 0.92 0.01 255;
+    --input: 0.92 0.01 255;
+    --ring: 0.32 0.09 254;
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    /* Charts */
+    --chart-1: 0.32 0.09 254;
+    --chart-2: 0.63 0.11 185;
+    --chart-3: 0.646 0.222 41.116;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    /* Sidebar */
+    --sidebar: 0.22 0.07 254;
+    --sidebar-foreground: 0.85 0.02 255;
+    --sidebar-primary: 1 0 0;
+    --sidebar-primary-foreground: 0.32 0.09 254;
+    --sidebar-accent: 0.28 0.08 254;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.28 0.08 254;
+    --sidebar-ring: 0.63 0.11 185;
+    /* Custom KPI tints */
+    --kpi-blue: 0.95 0.04 258;
+    --kpi-mint: 0.95 0.04 175;
+    --kpi-peach: 0.95 0.04 55;
+    --kpi-lavender: 0.95 0.04 290;
+    /* Hero warm paper */
+    --hero-bg: 0.93 0.02 70;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-kpi-blue {
+    background-color: oklch(var(--kpi-blue));
+  }
+  .bg-kpi-mint {
+    background-color: oklch(var(--kpi-mint));
+  }
+  .bg-kpi-peach {
+    background-color: oklch(var(--kpi-peach));
+  }
+  .bg-kpi-lavender {
+    background-color: oklch(var(--kpi-lavender));
+  }
+  .bg-hero {
+    background-color: oklch(var(--hero-bg));
+  }
+}
+
+/* Print styles for receipts */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #receipt-print,
+  #receipt-print * {
+    visibility: visible;
+  }
+  #receipt-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
